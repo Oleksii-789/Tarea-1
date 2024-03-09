@@ -14,6 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author Rovolt
+ */
 public class BoardScreen extends JPanel 
 {
 
@@ -40,26 +44,43 @@ public class BoardScreen extends JPanel
     JButton go;
     JButton quit;
 
+    /**
+     *
+     */
     public void quitButtonActionListener() {
         if (JOptionPane.showConfirmDialog(this, "Are you sure?") == JOptionPane.OK_OPTION) {
             System.exit(0);
         }
     }
 
+    /**
+     *
+     */
     public void goButtonActionListener() {
         mw.showCard("Two");
         //mw.setBoard();
         mw.resetAll();
     }
 
+    /**
+     *
+     * @param m
+     */
     public void setMaxPlayers(int m) {
         maxPlayers = m;
     }
 
+    /**
+     *
+     * @return
+     */
     public int returnMaxPlayers() {
         return maxPlayers;
     }
 
+    /**
+     *
+     */
     public void setUpPlayers() {
         players = new ArrayList<>();
         for (int i = 0; i < returnMaxPlayers(); i++) {
@@ -80,6 +101,10 @@ public class BoardScreen extends JPanel
 
     }
 
+    /**
+     *
+     * @param mw
+     */
     public BoardScreen(MainWindow mw) {
         this.mw = mw;
 
@@ -197,6 +222,10 @@ public class BoardScreen extends JPanel
     }
     private final transient PropertyChangeSupport propertyChangeSupport = new java.beans.PropertyChangeSupport(this);
     private final transient VetoableChangeSupport vetoableChangeSupport = new java.beans.VetoableChangeSupport(this);
+
+    /**
+     *
+     */
     public static final String PROP_X = "x";
 
     /**
@@ -217,6 +246,10 @@ public class BoardScreen extends JPanel
         this.y = y;
         propertyChangeSupport.firePropertyChange(PROP_Y, oldY, y);
     }
+
+    /**
+     *
+     */
     public static final String PROP_Y = "y";
 
 }
